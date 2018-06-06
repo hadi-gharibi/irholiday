@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import pandas as pd
 from convertdate import islamic
-from utils import *
+from .utils import *
 
 class irHoliday(object):
 
