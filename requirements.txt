@@ -1,0 +1,7 @@
+requests
+pandas
+beautifulsoup4
+khayyam
+umalqurra
+convertdate
+json
