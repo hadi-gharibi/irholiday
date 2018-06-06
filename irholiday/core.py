@@ -2,6 +2,7 @@
 import pandas as pd
 from convertdate import islamic
 from .utils import *
+__all__ = ['irHoliday']
 
 class irHoliday(object):
 
