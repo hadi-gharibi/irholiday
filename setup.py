@@ -11,9 +11,14 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = [ ]
-
-setup_requirements = [ ]
+setup_requirements =[]
+requirements = ['requests',
+                  'pandas',
+                  'beautifulsoup4',
+                  'khayyam',
+                  'umalqurra',
+                  'convertdate',
+                  'json']
 
 test_requirements = [ ]
 
@@ -45,5 +50,5 @@ setup(
     tests_require=test_requirements,
     url='https://github.com/hadi-gharibi/irholiday',
     version='0.1.0',
-    zip_safe=False,
+    zip_safe=False
 )
