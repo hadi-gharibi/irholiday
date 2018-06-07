@@ -16,15 +16,35 @@ irholiday
 
 
 
-Pandas Datafarme data from time.ir
+Installation
+------------
+
+::
+
+    $ pip install irholiday
+
+to install from the latest source use following command
+
+::
+
+    $ pip install git+git://github.com/hadi-gharibi/irholiday.git
 
 
-* Free software: MIT license
-* Documentation: https://irholiday.readthedocs.io.
+Usage
+------
 
+Enter the start and end year! that all :D
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code:: python
 
-Features
---------
+    from irholiday import irHoliday
 
-* TODO
+    # initialise the class
+    calendar = irHoliday
+
+    # export data on dataframe
+    df = calender.to_df(1388,1392)
+
+    # export data on csv
+    calnder.to_csv(1388,1392,'path/to/data')
 

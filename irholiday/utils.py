@@ -30,13 +30,13 @@ def soup_obj(r):
     return soup_obj
 
 
-def month_extractor(soup):
+def month_data_extractor(soup):
 
     events = soup.find('ul', attrs={'class': 'list-unstyled'})
-    a1 = df_maker(pd.DataFrame(events_list_extractor(events)))
+    a1 = df_maker(events_month_seprator(events))
     holi = holiday_extractor(events)
     holi = '\n\n\n'.join(x.text for x in holi)
-    a2 = df_maker(pd.DataFrame(events_list_extractor(holi)))
+    a2 = df_maker(pd.DataFrame(events_month_seprator(holi)))
     df = a1.merge(a2,how='left',on='event_name').fillna(0)
     df.ix[df.time_y != 0 ,'time_y'] = 1
     df.rename(columns={'time_y':'holiday'},inplace=True)
@@ -44,6 +44,7 @@ def month_extractor(soup):
 
 
 def df_maker(df):
+    df = pd.DataFrame(df)
     df.columns = df.iloc[0]
     return df.reindex(df.index.drop(0))
 
@@ -63,7 +64,7 @@ def text_jalali_to_date(text, year):
     month = month_list.index(month) + 1
     return khayyam.jalali_date.JalaliDate(year, month, day).todate()
 
-def events_list_extractor(events):
+def events_month_seprator(events):
     try:
         events = events.text
     except:
@@ -73,6 +74,7 @@ def events_list_extractor(events):
     for i,event in enumerate(events_list):
         for j,x in enumerate(event):
             events_list[i][j] = x.replace('\r\n' ,'').replace('\n\n\n','')
+            if j == 1: events_list[i][j] = events_list[i][j][1:]
     return [['time','event_name']]+events_list
 
 maketrans = lambda A, B: dict((ord(a), b) for a, b in zip(A, B))
