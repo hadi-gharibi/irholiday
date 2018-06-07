@@ -19,7 +19,5 @@ class irHoliday(object):
                 self.df = self.df.append(temp.drop_duplicates())
 
         self.df['jalali_date'] = self.df['date'].apply(lambda date: khayyam.JalaliDate((date)))
-        self.df['hijri_date'] = self.df.apply(
-            lambda df: islamic.from_gregorian(df.date.year,df.date.month,df.date.day),axis=1)
-        self.df['hijri_date'] = self.df.hijri_date.apply(lambda x: khayyam.JalaliDate(x[0], x[1], x[2]))
+
         return self.df.reset_index(drop=True)

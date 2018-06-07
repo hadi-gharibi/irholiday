@@ -5,3 +5,5 @@
 __author__ = """hadi gharibi"""
 __email__ = 'hady.gharibi@gmail.com'
 __version__ = '0.1.0'
+
+from .core import *

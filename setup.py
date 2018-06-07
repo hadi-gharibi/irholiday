@@ -45,9 +45,7 @@ setup(
     name='irholiday',
     packages=find_packages(include=['irholiday']),
     setup_requires=setup_requirements,
-    test_suite='tests',
-    tests_require=test_requirements,
     url='https://github.com/hadi-gharibi/irholiday',
-    version='0.1.2',
+    version='0.1.6',
     zip_safe=False
 )
