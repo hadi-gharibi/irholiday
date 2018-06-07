@@ -35,6 +35,8 @@ Usage
 
 Enter the start and end year! that all :D
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+that's all :D
+
 .. code:: python
 
     from irholiday import irHoliday
