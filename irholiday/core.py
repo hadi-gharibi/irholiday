@@ -5,7 +5,7 @@ __all__ = ['irHoliday']
 
 class irHoliday(object):
 
-    def main(self,start_year, end_year):
+    def _main(self, start_year, end_year):
         self.df= pd.DataFrame([],columns=['time_x', 'event_name', 'holiday', 'date'])
 
         for year in range(start_year, end_year+1):
@@ -22,8 +22,8 @@ class irHoliday(object):
         return self.df.reset_index(drop=True)
 
     def to_df(self,start_year,end_year):
-        self.main(start_year,end_year)
+        self._main(start_year, end_year)
         return self.df
     def to_csv(self,start_year,end_year):
-        self.main(start_year, end_year, path)
+        self._main(start_year, end_year, path)
         return self.df.to_csv(path, index=False)
