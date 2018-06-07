@@ -42,7 +42,7 @@ that's all :D
     from irholiday import irHoliday
 
     # initialise the class
-    calendar = irHoliday
+    calendar = irHoliday()
 
     # export data on dataframe
     df = calender.to_df(1388,1392)
