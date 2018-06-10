@@ -33,7 +33,7 @@ to install from the latest source use following command
 Usage
 ------
 
-Enter the start and end year! that all :D
+Enter the start and end year!
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 that's all :D
 
@@ -44,9 +44,9 @@ that's all :D
     # initialise the class
     calendar = irHoliday()
 
-    # export data on dataframe
+    # export data to dataframe
     df = calender.to_df(1388,1392)
 
-    # export data on csv
+    # export data to csv
     calnder.to_csv(1388,1392,'path/to/data')
 
