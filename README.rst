@@ -45,8 +45,8 @@ that's all :D
     calendar = irHoliday()
 
     # export data to dataframe
-    df = calender.to_df(1388,1392)
+    df = calendar.to_df(1388,1392)
 
     # export data to csv
-    calnder.to_csv(1388,1392,'path/to/data')
+    calendar.to_csv(1388,1392,'path/to/data')
 
