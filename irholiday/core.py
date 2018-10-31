@@ -24,6 +24,6 @@ class irHoliday(object):
     def to_df(self,start_year,end_year):
         self._main(start_year, end_year)
         return self.df
-    def to_csv(self,start_year,end_year):
-        self._main(start_year, end_year, path)
+    def to_csv(self,start_year,end_year, path):
+        self._main(start_year, end_year)
         return self.df.to_csv(path, index=False)
