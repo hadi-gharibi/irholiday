@@ -47,5 +47,6 @@ setup(
     setup_requires=setup_requirements,
     url='https://github.com/hadi-gharibi/irholiday',
     version='0.1.6',
-    zip_safe=False
+    zip_safe=False,
+    scripts=['bin/irholiday2csv'],
 )

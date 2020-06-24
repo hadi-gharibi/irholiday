@@ -7,19 +7,20 @@ import re
 
 def req(POSTstr):
 
-    headers={'Host': 'www.time.ir',
-    'User-Agent':'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0',
-    'Accept': '*/*',
-    'Accept-Language': 'en-GB,en;q=0.5',
-    'Accept-Encoding': 'gzip, deflate',
-    'Referer': 'http://www.time.ir/',
-    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    'X-Requested-With': 'XMLHttpRequest',
-    'Content-Length': '57',
-    'Connection': 'keep-alive'
+    headers={
+        'Host': 'www.time.ir',
+        'User-Agent':'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0',
+        'Accept': '*/*',
+        'Accept-Language': 'en-GB,en;q=0.5',
+        'Accept-Encoding': 'gzip, deflate',
+        'Referer': 'http://www.time.ir/',
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'X-Requested-With': 'XMLHttpRequest',
+        'Content-Length': '57',
+        'Connection': 'keep-alive'
     }
 
-    url='http://www.time.ir'
+    url='https://www.time.ir'
     r = requests.post(url=url,data=json.dumps(POSTstr),headers=headers)
     return r
 
@@ -38,7 +39,7 @@ def month_data_extractor(soup):
     holi = '\n\n\n'.join(x.text for x in holi)
     a2 = df_maker(pd.DataFrame(events_month_seprator(holi)))
     df = a1.merge(a2,how='left',on='event_name').fillna(0)
-    df.ix[df.time_y != 0 ,'time_y'] = 1
+    df.loc[df.time_y != 0 ,'time_y'] = 1
     df.rename(columns={'time_y':'holiday'},inplace=True)
     return df
 
@@ -60,9 +61,12 @@ def text_jalali_to_date(text, year):
     text = text.split(' ')
     day = int(text[0].translate(translations))
     month = text[1]
-    month_list = ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور', 'مهر', 'آبان', 'آذر', 'دی', 'بهمن', 'اسفند']
+    month_list = ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'اَمرداد', 'شهریور', 'مهر', 'آبان', 'آذر', 'دی', 'بهمن', 'اسفند']
     month = month_list.index(month) + 1
-    return khayyam.jalali_date.JalaliDate(year, month, day).todate()
+    try:
+        return khayyam.jalali_date.JalaliDate(year, month, day).todate()
+    except:
+        return None
 
 def events_month_seprator(events):
     try:

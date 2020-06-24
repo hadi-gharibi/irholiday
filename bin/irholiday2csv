@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+
+import argparse
+from irholiday import irHoliday
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="Saves Iran's holidays into a csv file")
+    parser.add_argument('start_year', type=int,
+                        help='Start from this year')
+    parser.add_argument('--end_year', type=int, default=None,
+                        help='To this year')
+    parser.add_argument('--path', type=str, default="irholidays.csv",
+                        help='Save path (deafult to `./irholidays.csv`)')
+
+    args = parser.parse_args()
+
+    calendar = irHoliday()
+    calendar.to_csv(args.start_year, args.end_year, args.path)
