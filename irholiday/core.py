@@ -23,7 +23,7 @@ class irHoliday(object):
                 self.df = pd.concat([self.df,temp.drop_duplicates()])
                 self.df.dropna(inplace=True)
 
-        self.df['jdate_time'] = self.df['date'].apply(lambda date: jdatetime.date.fromgregorian(date=date))
+        self.df['jalali_date'] = self.df['date'].apply(lambda date: jdatetime.date.fromgregorian(date=date))
 
         return self.df.reset_index(drop=True)
 
