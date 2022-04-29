@@ -48,7 +48,7 @@ setup(
     packages=find_packages(include=['irholiday']),
     setup_requires=setup_requirements,
     url='https://github.com/hadi-gharibi/irholiday',
-    version='0.1.7',
+    version='0.1.8',
     zip_safe=False,
     scripts=['bin/irholiday2csv'],
 )
