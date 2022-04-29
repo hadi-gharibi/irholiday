@@ -15,9 +15,10 @@ setup_requirements =[]
 requirements = ['requests',
                   'pandas',
                   'beautifulsoup4',
-                  'khayyam',
                   'umalqurra',
-                  'convertdate']
+                  'convertdate',
+                  'convert_numbers',
+                  'jdatetime']
 
 test_requirements = [ ]
 
@@ -29,12 +30,13 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
-        "Programming Language :: Python :: 2",
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
     ],
     description="Pandas Datafarme data from time.ir",
     install_requires=requirements,
@@ -46,7 +48,7 @@ setup(
     packages=find_packages(include=['irholiday']),
     setup_requires=setup_requirements,
     url='https://github.com/hadi-gharibi/irholiday',
-    version='0.1.6',
+    version='0.1.7',
     zip_safe=False,
     scripts=['bin/irholiday2csv'],
 )
