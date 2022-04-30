@@ -2,7 +2,7 @@
 History
 =======
 
-0.1.8 (2011-06-21)
+0.1.8 (2022-04-30)
 ------------------
 * Fix the request bug that returns just a month from time.ir
 * Fix the bug for duplicate holiday dates (ex: 13th Farvardin)
